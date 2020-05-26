@@ -1,0 +1,99 @@
+﻿.pageUser_wrapper .headerNavBar {
+    background-color: white;
+    color: black;
+    padding: 0 5vw;
+    height: 10vh;
+    min-height: 55px;
+    box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.08), 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.pageUser_wrapper .Logo img {
+    height: 40px;
+    width: 40px;
+}
+
+.pageUser_wrapper .Login img {
+    height: 40px;
+    width: 40px;
+}
+
+.pageUser_wrapper .boxSearch {
+    border: 1px solid #ececec;
+    border-radius: 7px;
+    margin-left: 3vw;
+    padding: 0 0.7vw;
+}
+
+.pageUser_wrapper .boxSearch:hover,
+.pageUser_wrapper .boxSearch:focus {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.18);
+}
+
+.pageUser_wrapper .boxSearch input {
+    border: none;
+    box-shadow: none;
+    outline: none;
+    margin: 0 0.7vw;
+    width: 50vw;
+}
+
+.pageUser_wrapper .categories {
+    display: flex;
+    flex-direction: column;
+}
+
+.pageUser_wrapper .categories {
+    width: 17vw;
+    box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.08), 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+    height: 90vh;
+    min-height: 400px;
+}
+
+.pageUser_wrapper .contentCategory {
+    padding: 10px 3vw;
+    cursor: pointer;
+}
+
+.pageUser_wrapper .contentCategory:hover {
+    background-color: #c6c6c6;
+}
+
+.pageUser_wrapper .contentNews_wrapper {
+    width: 83vw;
+    padding: 2vh 3vw;
+    height: 83vh;
+    overflow-y: scroll;
+}
+
+.pageUser_wrapper .contentNew {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.08);
+    border-radius: 6px;
+    padding: 2vh 2vw;
+    margin-bottom: 3vh;
+}
+
+.pageUser_wrapper .content {
+    display: flex;
+    width: 75%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pageUser_wrapper .topContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.pageUser_wrapper .image {
+    width: 25%;
+    height: 100px;
+    background-color: blue;
+}
+
+.pageUser_wrapper .image img {
+    width: 100%;
+    height: 100%;
+}

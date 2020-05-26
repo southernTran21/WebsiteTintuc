@@ -1,0 +1,45 @@
+﻿@model IEnumerable<websitestintuc.Models.Account>
+
+@{
+    ViewBag.Title = "Accounts";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Accounts</h2>
+
+<p>
+    @Html.ActionLink("Thêm Tài Khoản", "themtaikhoan")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th style="width:70px">IDTK </th>
+        <th style="width:150px">Tên Đăng Nhập </th>
+        <th style="width:150px">Mật Khẩu </th>
+        <th style="width:200px">Tên Hiển Thị </th>
+        <th style="width:170px"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.displayname)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

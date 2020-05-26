@@ -1,0 +1,41 @@
+﻿@model IEnumerable<websitestintuc.Models.category>
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Categories</h2>
+
+<p>
+    @Html.ActionLink("Thêm Loại mới", "Themloai")
+</p>
+
+<table class="table" border="1">
+    <tr>
+
+        <th style="width:200px">ID Loại </th>
+        <th style="width:200px">Thể Loại </th>
+        <th style="width:200px"> </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CategoryName)
+    </td>
+
+
+    <td>
+        @Html.ActionLink("Sửa", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
+    </td>
+</tr>
+}
+
+</table>

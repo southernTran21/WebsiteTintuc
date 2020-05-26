@@ -1,0 +1,14 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background: url(../Images/backgroundPageLogin.jpg);
+    background-size :cover;
+}
+
+.loginbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}

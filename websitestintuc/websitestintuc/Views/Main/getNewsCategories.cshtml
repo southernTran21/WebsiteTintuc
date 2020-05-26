@@ -1,0 +1,30 @@
+﻿@model IEnumerable<websitestintuc.Models.TinTuc>
+
+@{
+    ViewBag.Title = "getNewsCategories";
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+
+
+@foreach (var result in Model)
+{
+    <div class="contentNew">
+        <div class="content">
+            <div class="topContent">
+                <span class="titleNew">@result.title</span>
+                <span class="descriptionNew">@result.description</span>
+            </div>
+            <div class="botContent">
+                <span>@result.IDlogo</span>
+            </div>
+        </div>
+        <div class="image">
+            <!-- <img
+                src="./pngtree-beautiful-admin-roles-line-vector-icon-png-image_2042211.jpg"
+                alt=""
+            /> -->
+        </div>
+    </div>
+}
+

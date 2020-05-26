@@ -1,0 +1,42 @@
+﻿@model IEnumerable<websitestintuc.Models.Logo>
+
+@{
+    ViewBag.Title = "LoGo";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>LoGo</h2>
+
+<p>
+    @Html.ActionLink("Thêm LoGo", "themlogo")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th style="width:110px">ID LoGo </th>
+        <th style="width:200px">LoGo </th>
+        <th style="width:200px">SourceName </th>
+        <th style="width:170px"> </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Image)
+
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SourceName)
+
+    </td>
+    <td>
+        @Html.ActionLink("Sửa", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
+    </td>
+</tr>
+}
+
+</table>

@@ -80,6 +80,7 @@
     width: 75%;
     flex-direction: column;
     justify-content: space-between;
+    padding-right: 15px;
 }
 
 .pageUser_wrapper .topContent {
@@ -87,13 +88,20 @@
     flex-direction: column;
 }
 
+
 .pageUser_wrapper .image {
-    width: 25%;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     background-color: blue;
 }
 
 .pageUser_wrapper .image img {
     width: 100%;
     height: 100%;
+}
+
+a.titleNew{
+    font-weight:bold !important;
+    color: black !important;
+    font-size: 18px;
 }

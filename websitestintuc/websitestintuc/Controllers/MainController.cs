@@ -27,13 +27,18 @@ namespace websitestintuc.Controllers
         {
             var tinmoi = from s in db.TinTucs where s.IDcategory == id select s;
             var displayName = from a in db.categories where a.ID == id select a.CategoryName;
-            ViewData["DisplayCategory"] = displayName;
             return View(tinmoi);
+        }
+
+        public ActionResult topList()
+        {
+            var topList = from s in db.TinTucs where s.topList == true select s;
+            return View(topList);
         }
 
         public ActionResult Index()
         {
-            var tinMoi = LayTinMoi(5);
+            var tinMoi = LayTinMoi(100);
             return View(tinMoi);
         }
     }

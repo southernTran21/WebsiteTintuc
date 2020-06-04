@@ -1,13 +1,10 @@
 ﻿@model IEnumerable<websitestintuc.Models.TinTuc>
-
 @{
-    ViewBag.Title = "getNewsCategories";
+    ViewBag.Title = "topList";
     Layout = "~/Views/Shared/_Layoutuser.cshtml";
 }
 
-@*<h3 class="d-flex justify-content-center" style="padding-bottom: 1vh ">Tin theo chủ đề</h3>*@
-
-<h3 class="d-flex justify-content-center" style="padding-bottom: 1vh ">Tin theo chủ đề</h3>
+<h3 class="d-flex justify-content-center" style="padding-bottom: 1vh ">Tin hot</h3>
 
 @foreach (var result in Model)
 {
@@ -24,4 +21,3 @@
         </div>
     </div>
 }
-

@@ -33,15 +33,15 @@ namespace websitestintuc.Models
     partial void InsertAccount(Account instance);
     partial void UpdateAccount(Account instance);
     partial void DeleteAccount(Account instance);
+    partial void InsertTinTuc(TinTuc instance);
+    partial void UpdateTinTuc(TinTuc instance);
+    partial void DeleteTinTuc(TinTuc instance);
     partial void Insertcategory(category instance);
     partial void Updatecategory(category instance);
     partial void Deletecategory(category instance);
     partial void InsertLogo(Logo instance);
     partial void UpdateLogo(Logo instance);
     partial void DeleteLogo(Logo instance);
-    partial void InsertTinTuc(TinTuc instance);
-    partial void UpdateTinTuc(TinTuc instance);
-    partial void DeleteTinTuc(TinTuc instance);
     #endregion
 		
 		public DataWebTinTucDataContext() : 
@@ -82,6 +82,14 @@ namespace websitestintuc.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<TinTuc> TinTucs
+		{
+			get
+			{
+				return this.GetTable<TinTuc>();
+			}
+		}
+		
 		public System.Data.Linq.Table<category> categories
 		{
 			get
@@ -95,14 +103,6 @@ namespace websitestintuc.Models
 			get
 			{
 				return this.GetTable<Logo>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TinTuc> TinTucs
-		{
-			get
-			{
-				return this.GetTable<TinTuc>();
 			}
 		}
 	}
@@ -216,6 +216,342 @@ namespace websitestintuc.Models
 					this._displayname = value;
 					this.SendPropertyChanged("displayname");
 					this.OndisplaynameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TinTuc")]
+	public partial class TinTuc : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _title;
+		
+		private string _description;
+		
+		private System.Nullable<System.DateTime> _dateup;
+		
+		private System.Nullable<bool> _topList;
+		
+		private string _Imagedemo;
+		
+		private string _Link;
+		
+		private System.Nullable<int> _IDlogo;
+		
+		private System.Nullable<int> _IDcategory;
+		
+		private EntityRef<category> _category;
+		
+		private EntityRef<Logo> _Logo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OntitleChanging(string value);
+    partial void OntitleChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    partial void OndateupChanging(System.Nullable<System.DateTime> value);
+    partial void OndateupChanged();
+    partial void OntopListChanging(System.Nullable<bool> value);
+    partial void OntopListChanged();
+    partial void OnImagedemoChanging(string value);
+    partial void OnImagedemoChanged();
+    partial void OnLinkChanging(string value);
+    partial void OnLinkChanged();
+    partial void OnIDlogoChanging(System.Nullable<int> value);
+    partial void OnIDlogoChanged();
+    partial void OnIDcategoryChanging(System.Nullable<int> value);
+    partial void OnIDcategoryChanged();
+    #endregion
+		
+		public TinTuc()
+		{
+			this._category = default(EntityRef<category>);
+			this._Logo = default(EntityRef<Logo>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="NVarChar(MAX)")]
+		public string title
+		{
+			get
+			{
+				return this._title;
+			}
+			set
+			{
+				if ((this._title != value))
+				{
+					this.OntitleChanging(value);
+					this.SendPropertyChanging();
+					this._title = value;
+					this.SendPropertyChanged("title");
+					this.OntitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(MAX)")]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this.OndescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._description = value;
+					this.SendPropertyChanged("description");
+					this.OndescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateup", DbType="Date")]
+		public System.Nullable<System.DateTime> dateup
+		{
+			get
+			{
+				return this._dateup;
+			}
+			set
+			{
+				if ((this._dateup != value))
+				{
+					this.OndateupChanging(value);
+					this.SendPropertyChanging();
+					this._dateup = value;
+					this.SendPropertyChanged("dateup");
+					this.OndateupChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_topList", DbType="Bit")]
+		public System.Nullable<bool> topList
+		{
+			get
+			{
+				return this._topList;
+			}
+			set
+			{
+				if ((this._topList != value))
+				{
+					this.OntopListChanging(value);
+					this.SendPropertyChanging();
+					this._topList = value;
+					this.SendPropertyChanged("topList");
+					this.OntopListChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imagedemo", DbType="NVarChar(MAX)")]
+		public string Imagedemo
+		{
+			get
+			{
+				return this._Imagedemo;
+			}
+			set
+			{
+				if ((this._Imagedemo != value))
+				{
+					this.OnImagedemoChanging(value);
+					this.SendPropertyChanging();
+					this._Imagedemo = value;
+					this.SendPropertyChanged("Imagedemo");
+					this.OnImagedemoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Link", DbType="VarChar(MAX)")]
+		public string Link
+		{
+			get
+			{
+				return this._Link;
+			}
+			set
+			{
+				if ((this._Link != value))
+				{
+					this.OnLinkChanging(value);
+					this.SendPropertyChanging();
+					this._Link = value;
+					this.SendPropertyChanged("Link");
+					this.OnLinkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDlogo", DbType="Int")]
+		public System.Nullable<int> IDlogo
+		{
+			get
+			{
+				return this._IDlogo;
+			}
+			set
+			{
+				if ((this._IDlogo != value))
+				{
+					if (this._Logo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIDlogoChanging(value);
+					this.SendPropertyChanging();
+					this._IDlogo = value;
+					this.SendPropertyChanged("IDlogo");
+					this.OnIDlogoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDcategory", DbType="Int")]
+		public System.Nullable<int> IDcategory
+		{
+			get
+			{
+				return this._IDcategory;
+			}
+			set
+			{
+				if ((this._IDcategory != value))
+				{
+					if (this._category.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIDcategoryChanging(value);
+					this.SendPropertyChanging();
+					this._IDcategory = value;
+					this.SendPropertyChanged("IDcategory");
+					this.OnIDcategoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="category_TinTuc", Storage="_category", ThisKey="IDcategory", OtherKey="ID", IsForeignKey=true)]
+		public category category
+		{
+			get
+			{
+				return this._category.Entity;
+			}
+			set
+			{
+				category previousValue = this._category.Entity;
+				if (((previousValue != value) 
+							|| (this._category.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._category.Entity = null;
+						previousValue.TinTucs.Remove(this);
+					}
+					this._category.Entity = value;
+					if ((value != null))
+					{
+						value.TinTucs.Add(this);
+						this._IDcategory = value.ID;
+					}
+					else
+					{
+						this._IDcategory = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("category");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Logo_TinTuc", Storage="_Logo", ThisKey="IDlogo", OtherKey="ID", IsForeignKey=true)]
+		public Logo Logo
+		{
+			get
+			{
+				return this._Logo.Entity;
+			}
+			set
+			{
+				Logo previousValue = this._Logo.Entity;
+				if (((previousValue != value) 
+							|| (this._Logo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Logo.Entity = null;
+						previousValue.TinTucs.Remove(this);
+					}
+					this._Logo.Entity = value;
+					if ((value != null))
+					{
+						value.TinTucs.Add(this);
+						this._IDlogo = value.ID;
+					}
+					else
+					{
+						this._IDlogo = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Logo");
 				}
 			}
 		}
@@ -407,7 +743,7 @@ namespace websitestintuc.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(MAX)")]
 		public string Image
 		{
 			get
@@ -490,342 +826,6 @@ namespace websitestintuc.Models
 		{
 			this.SendPropertyChanging();
 			entity.Logo = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TinTuc")]
-	public partial class TinTuc : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _title;
-		
-		private string _description;
-		
-		private System.Nullable<System.DateTime> _dateup;
-		
-		private System.Nullable<bool> _topList;
-		
-		private string _Imagedemo;
-		
-		private string _Link;
-		
-		private System.Nullable<int> _IDlogo;
-		
-		private System.Nullable<int> _IDcategory;
-		
-		private EntityRef<category> _category;
-		
-		private EntityRef<Logo> _Logo;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OntitleChanging(string value);
-    partial void OntitleChanged();
-    partial void OndescriptionChanging(string value);
-    partial void OndescriptionChanged();
-    partial void OndateupChanging(System.Nullable<System.DateTime> value);
-    partial void OndateupChanged();
-    partial void OntopListChanging(System.Nullable<bool> value);
-    partial void OntopListChanged();
-    partial void OnImagedemoChanging(string value);
-    partial void OnImagedemoChanged();
-    partial void OnLinkChanging(string value);
-    partial void OnLinkChanged();
-    partial void OnIDlogoChanging(System.Nullable<int> value);
-    partial void OnIDlogoChanged();
-    partial void OnIDcategoryChanging(System.Nullable<int> value);
-    partial void OnIDcategoryChanged();
-    #endregion
-		
-		public TinTuc()
-		{
-			this._category = default(EntityRef<category>);
-			this._Logo = default(EntityRef<Logo>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="NVarChar(50)")]
-		public string title
-		{
-			get
-			{
-				return this._title;
-			}
-			set
-			{
-				if ((this._title != value))
-				{
-					this.OntitleChanging(value);
-					this.SendPropertyChanging();
-					this._title = value;
-					this.SendPropertyChanged("title");
-					this.OntitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(50)")]
-		public string description
-		{
-			get
-			{
-				return this._description;
-			}
-			set
-			{
-				if ((this._description != value))
-				{
-					this.OndescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._description = value;
-					this.SendPropertyChanged("description");
-					this.OndescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dateup", DbType="Date")]
-		public System.Nullable<System.DateTime> dateup
-		{
-			get
-			{
-				return this._dateup;
-			}
-			set
-			{
-				if ((this._dateup != value))
-				{
-					this.OndateupChanging(value);
-					this.SendPropertyChanging();
-					this._dateup = value;
-					this.SendPropertyChanged("dateup");
-					this.OndateupChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_topList", DbType="Bit")]
-		public System.Nullable<bool> topList
-		{
-			get
-			{
-				return this._topList;
-			}
-			set
-			{
-				if ((this._topList != value))
-				{
-					this.OntopListChanging(value);
-					this.SendPropertyChanging();
-					this._topList = value;
-					this.SendPropertyChanged("topList");
-					this.OntopListChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Imagedemo", DbType="NVarChar(50)")]
-		public string Imagedemo
-		{
-			get
-			{
-				return this._Imagedemo;
-			}
-			set
-			{
-				if ((this._Imagedemo != value))
-				{
-					this.OnImagedemoChanging(value);
-					this.SendPropertyChanging();
-					this._Imagedemo = value;
-					this.SendPropertyChanged("Imagedemo");
-					this.OnImagedemoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Link", DbType="VarChar(50)")]
-		public string Link
-		{
-			get
-			{
-				return this._Link;
-			}
-			set
-			{
-				if ((this._Link != value))
-				{
-					this.OnLinkChanging(value);
-					this.SendPropertyChanging();
-					this._Link = value;
-					this.SendPropertyChanged("Link");
-					this.OnLinkChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDlogo", DbType="Int")]
-		public System.Nullable<int> IDlogo
-		{
-			get
-			{
-				return this._IDlogo;
-			}
-			set
-			{
-				if ((this._IDlogo != value))
-				{
-					if (this._Logo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIDlogoChanging(value);
-					this.SendPropertyChanging();
-					this._IDlogo = value;
-					this.SendPropertyChanged("IDlogo");
-					this.OnIDlogoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDcategory", DbType="Int")]
-		public System.Nullable<int> IDcategory
-		{
-			get
-			{
-				return this._IDcategory;
-			}
-			set
-			{
-				if ((this._IDcategory != value))
-				{
-					if (this._category.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIDcategoryChanging(value);
-					this.SendPropertyChanging();
-					this._IDcategory = value;
-					this.SendPropertyChanged("IDcategory");
-					this.OnIDcategoryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="category_TinTuc", Storage="_category", ThisKey="IDcategory", OtherKey="ID", IsForeignKey=true)]
-		public category category
-		{
-			get
-			{
-				return this._category.Entity;
-			}
-			set
-			{
-				category previousValue = this._category.Entity;
-				if (((previousValue != value) 
-							|| (this._category.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._category.Entity = null;
-						previousValue.TinTucs.Remove(this);
-					}
-					this._category.Entity = value;
-					if ((value != null))
-					{
-						value.TinTucs.Add(this);
-						this._IDcategory = value.ID;
-					}
-					else
-					{
-						this._IDcategory = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("category");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Logo_TinTuc", Storage="_Logo", ThisKey="IDlogo", OtherKey="ID", IsForeignKey=true)]
-		public Logo Logo
-		{
-			get
-			{
-				return this._Logo.Entity;
-			}
-			set
-			{
-				Logo previousValue = this._Logo.Entity;
-				if (((previousValue != value) 
-							|| (this._Logo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Logo.Entity = null;
-						previousValue.TinTucs.Remove(this);
-					}
-					this._Logo.Entity = value;
-					if ((value != null))
-					{
-						value.TinTucs.Add(this);
-						this._IDlogo = value.ID;
-					}
-					else
-					{
-						this._IDlogo = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Logo");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }

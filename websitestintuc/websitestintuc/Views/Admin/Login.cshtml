@@ -13,25 +13,27 @@
           rel="stylesheet" />
 </head>
 <body>
-    <div class="loginbox">
-        <h1>Login</h1>
-        <p>Vui Lòng Nhập Tài Khoản </p>
-        <h2 style="color: red;text-align: center;">@ViewBag.Thongbao</h2>
-        @using (Html.BeginForm())
-        {
-            @Html.ValidationSummary(true)
-            <div class="Textbox1">
-                <span class="icon"><i class="fa fa-user"></i></span>
-                <input type="text" placeholder="UserName" name="username" />
-                @ViewData["Loi1"]
-            </div>
-            <div class="Textbox2">
-                <span class="icon"><i class="fa fa-lock"></i></span>
-                <input type="password" placeholder="Password" name="password" />
-                @ViewData["Loi2"]
-            </div>
-            <button type="submit" class="btn" >Đăng Nhập</button>
-        }
+    <div class="loginBox-wrapper">
+        <div class="loginBox">
+            <span class="titleLogin">Login</span>
+            <span class="subtitleLogin">Vui Lòng Nhập Tài Khoản </span>
+            <h2 style="color: red;text-align: center;">@ViewBag.Thongbao</h2>
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                <div class="Textbox1FormLogin">
+                    <span class="icon"><i class="fa fa-user"></i></span>
+                    <input type="text" placeholder="UserName" name="username" />
+                </div>
+                <span style="color:black">@ViewData["Loi1"]</span>
+                <div class="Textbox2FormLogin">
+                    <span class="icon"><i class="fa fa-lock"></i></span>
+                    <input type="password" placeholder="Password" name="password" />
+                </div>
+                <span style="color:black">@ViewData["Loi2"]</span>
+                <button type="submit" class="buttonSubmitLogin">Đăng Nhập</button>
+            }
+        </div>
     </div>
 </body>
 </html>

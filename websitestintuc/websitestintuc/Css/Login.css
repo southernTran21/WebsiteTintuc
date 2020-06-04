@@ -5,10 +5,51 @@
     background-size :cover;
 }
 
-.loginbox {
+.loginBox-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 100vh;
+}
+.loginBox {
+    background-color: white;
+    padding: 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.08);
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.titleLogin{
+    font-size:24px;
+    font-weight:bold;
+}
+.subtitleLogin{
+    font-size:18px;
+    margin-top:10px;
+}
+.Textbox1FormLogin, .Textbox2FormLogin {
+    border-bottom: 1px solid black;
+    font-size:20px;
+    margin: 10px 0;
+}
+.Textbox1FormLogin input {
+    border: none;
+    outline: none;
+    box-shadow: none
+}
+
+.Textbox2FormLogin input {
+    border: none;
+    outline: none;
+    box-shadow: none
+}
+.buttonSubmitLogin{
+    background-color: gray;
+    border:none;
+    padding: 7px 15px;
+    border-radius:5px;
+    margin-top: 20px;
+    margin-left: 50px;
 }

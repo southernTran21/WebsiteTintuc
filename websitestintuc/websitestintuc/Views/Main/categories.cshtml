@@ -1,4 +1,10 @@
 ﻿@model IEnumerable<websitestintuc.Models.category>
+    <a class="contentCategory" href="@Url.Action("Index", "Main")">
+        Trang chủ
+    </a>
+    <a class="contentCategory" href="@Url.Action("topList", "Main")">
+        Tin hot
+    </a>
     @foreach(var item in Model)
     {
         <a class="contentCategory" href="@Url.Action("getNewsCategories", "Main", new { id = item.ID })">

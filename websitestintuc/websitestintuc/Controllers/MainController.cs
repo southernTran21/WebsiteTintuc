@@ -26,6 +26,8 @@ namespace websitestintuc.Controllers
         public ActionResult getNewsCategories(int id)
         {
             var tinmoi = from s in db.TinTucs where s.IDcategory == id select s;
+            var displayName = from a in db.categories where a.ID == id select a.CategoryName;
+            ViewData["DisplayCategory"] = displayName;
             return View(tinmoi);
         }
 

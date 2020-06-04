@@ -1,0 +1,80 @@
+﻿@model websitestintuc.Models.TinTuc
+@{ 
+    ViewBag.title = "Chitiet";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+    <h4>THÔNG TIN CHI TIẾT</h4>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tiêu Đề :
+        </dt>
+
+        <dd style="width:800px"text-align:justify>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            Mô Tả :
+        </dt>
+
+        <dd style="width :800px;text-align:justify">
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            Ngày Đăng:
+        </dt>
+
+        <dd>
+           @String.Format("{0:dd/MM/yyyy}", Model.dateup)
+        </dd>
+
+        <dt>
+            TopList
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.topList)
+        </dd>
+
+        <dt>
+           Ảnh:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/ImageUpload/" + Model.Imagedemo)" width="120px"  />
+        </dd>
+
+        <dt>
+            Liên Kết:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link)
+        </dd>
+
+        <dt>
+            LoGo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDlogo)
+        </dd>
+
+        <dt>
+            Thể Loại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDcategory)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Editnews", new { id = Model.ID }) |
+    @Html.ActionLink("Trở Về", "News")
+</p>

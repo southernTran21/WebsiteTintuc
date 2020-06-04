@@ -46,6 +46,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
@@ -139,6 +145,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Css\Admin.css" />
     <Content Include="Css\layoutUser.css" />
     <Content Include="Css\Login.css" />
@@ -149,7 +156,6 @@
     <Content Include="Images\backgroundPageLogin.jpg" />
     <Content Include="Images\logo-internet-png-5.png" />
     <Content Include="Images\pngtree-beautiful-admin-roles-line-vector-icon-png-image_2042211.jpg" />
-    <Content Include="Images\pngtree-vector-logout-icon-png-image_4258870.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Models\DataWebTinTuc.dbml">
@@ -196,10 +202,19 @@
     <Content Include="Views\Admin\Categories.cshtml" />
     <Content Include="Views\Admin\LoGo.cshtml" />
     <Content Include="Views\Admin\Accounts.cshtml" />
+    <Content Include="Views\Admin\Detailsnews.cshtml" />
+    <Content Include="Views\Admin\Deletenews.cshtml" />
+    <Content Include="Views\Admin\Editnews.cshtml" />
     <Content Include="Views\Admin\Themtinmoi.cshtml" />
+    <Content Include="Views\Admin\Themloaimoi.cshtml" />
+    <Content Include="Views\Admin\EditCategories.cshtml" />
+    <Content Include="Views\Admin\DeleteCategories.cshtml" />
+    <Content Include="Views\Admin\Themlogo.cshtml" />
+    <Content Include="Views\Admin\DetailsCategories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ImageLogo\" />
     <Folder Include="ImageUpload\" />
   </ItemGroup>
   <ItemGroup>

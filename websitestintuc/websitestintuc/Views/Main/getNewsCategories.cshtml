@@ -5,18 +5,17 @@
     Layout = "~/Views/Shared/_Layoutuser.cshtml";
 }
 
+@*<h3 class="d-flex justify-content-center" style="padding-bottom: 1vh ">Tin theo chủ đề</h3>*@
 
+<h3 class="d-flex justify-content-center" style="padding-bottom: 1vh ">Tin theo chủ đề @ViewData["DisplayCategory"]</h3>
 
 @foreach (var result in Model)
 {
     <div class="contentNew">
         <div class="content">
             <div class="topContent">
-                <span class="titleNew">@result.title</span>
+                <a class="titleNew" href="@result.Link">@result.title</a>
                 <span class="descriptionNew">@result.description</span>
-            </div>
-            <div class="botContent">
-                <span>@result.IDlogo</span>
             </div>
         </div>
         <div class="image">

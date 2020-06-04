@@ -1,20 +1,22 @@
 ﻿@model websitestintuc.Models.TinTuc
 
 @{
-    ViewBag.Title = "Themtinmoi";
+    ViewBag.Title = "Editnews";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Thêm Tin Mới</h2>
+<h2>CHỈNH SỬA TIN TỨC</h2>
 
-@using (Html.BeginForm("Themtinmoi","Admin",FormMethod.Post,new { @enctype="multipart/form-data"})) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        
+
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ID)
+
         <div class="form-group">
             @Html.LabelFor(model => model.title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -34,8 +36,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.dateup, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="date" name="Ngày Đăng"/>
-                @Html.ValidationMessageFor(model => model.dateup, "", new { @class = "text-danger" })
+              <input type="date" name="Ngày Đăng" />
             </div>
         </div>
 
@@ -48,9 +49,12 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Imagedemo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="file" name="fileupload" />
+            @Html.LabelFor(model => model.Imagedemo,htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">Chọn Ảnh Mới
+                
+            <input type="file" name="fileupload"  /> 
+
+            <img src="@Url.Content("~/ImageUpload/"+ Model.Imagedemo)" width="100px" height="100px" />(Ảnh Hiện Tại)
                 @ViewBag.ThongBao
             </div>
         </div>
@@ -66,25 +70,26 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IDlogo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-               @Html.DropDownList("IDlogo")
+                @Html.DropDownList("IDlogo")
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.IDcategory, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-              @Html.DropDownList("IDcategory")
+                @Html.DropDownList("IDcategory")
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Lưu" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Quay Lại", "News")
+    @Html.ActionLink("Trở Về", "News")
 </div>
+

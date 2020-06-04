@@ -1,0 +1,89 @@
+﻿@model websitestintuc.Models.TinTuc
+@{
+    ViewBag.Title = "DeleteNews";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>XÁC NHẬN THÔNG TIN CẦN XÓA</h2>
+
+<div>
+
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tiêu Đề :
+        </dt>
+
+        <dd style="width:800px" text-align:justify>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            Mô Tả :
+        </dt>
+
+        <dd style="width :800px;text-align:justify">
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            Ngày Đăng:
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.dateup)
+        </dd>
+
+        <dt>
+            TopList
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.topList)
+        </dd>
+
+        <dt>
+            Ảnh:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/ImageUpload/" + Model.Imagedemo)" width="120px" />
+        </dd>
+
+        <dt>
+            Liên Kết:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link)
+        </dd>
+
+        <dt>
+            LoGo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDlogo)
+        </dd>
+
+        <dt>
+            Thể Loại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDcategory)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở Về", "News")
+        </div>
+    }
+</div>

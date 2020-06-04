@@ -72,7 +72,11 @@ E:\websitestintuc\websitestintuc\bin\System.Web.WebPages.Razor.xml
 E:\websitestintuc\websitestintuc\bin\Newtonsoft.Json.xml
 E:\websitestintuc\websitestintuc\bin\Antlr3.Runtime.pdb
 E:\websitestintuc\websitestintuc\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\websitestintuc\websitestintuc\obj\Debug\websitestintuc.csprojAssemblyReference.cache
 E:\websitestintuc\websitestintuc\obj\Debug\websitestintuc.csproj.CopyComplete
 E:\websitestintuc\websitestintuc\obj\Debug\websitestintuc.dll
 E:\websitestintuc\websitestintuc\obj\Debug\websitestintuc.pdb
+E:\websitestintuc\websitestintuc\obj\Debug\websitestintuc.csprojAssemblyReference.cache
+E:\websitestintuc\websitestintuc\bin\PagedList.dll
+E:\websitestintuc\websitestintuc\bin\PagedList.Mvc.dll
+E:\websitestintuc\websitestintuc\bin\PagedList.xml
+E:\websitestintuc\websitestintuc\bin\PagedList.Mvc.xml

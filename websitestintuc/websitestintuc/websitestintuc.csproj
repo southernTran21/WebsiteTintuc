@@ -207,11 +207,16 @@
     <Content Include="Views\Admin\Editnews.cshtml" />
     <Content Include="Views\Admin\Themtinmoi.cshtml" />
     <Content Include="Views\Admin\Themloaimoi.cshtml" />
-    <Content Include="Views\Admin\EditCategories.cshtml" />
     <Content Include="Views\Admin\DeleteCategories.cshtml" />
     <Content Include="Views\Admin\Themlogo.cshtml" />
     <Content Include="Views\Admin\DetailsCategories.cshtml" />
     <Content Include="Views\Main\topList.cshtml" />
+    <Content Include="Views\Admin\DeleteLoGo.cshtml" />
+    <Content Include="Views\Admin\DetailsLoGo.cshtml" />
+    <Content Include="Views\Admin\Themtaikhoan.cshtml" />
+    <Content Include="Views\Admin\DeleteAccounts.cshtml" />
+    <Content Include="Views\Admin\DetailsAccounts.cshtml" />
+    <Content Include="Views\Admin\EditCategories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

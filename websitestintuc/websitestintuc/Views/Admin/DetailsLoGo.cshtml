@@ -1,0 +1,35 @@
+﻿@model websitestintuc.Models.Logo
+
+@{
+    ViewBag.Title = "DetailsLoGo";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi Tiết</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/ImageUpload/" + Model.Image)" width="70px" height="70px" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SourceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SourceName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Trở Về", "LoGo")
+</p>

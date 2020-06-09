@@ -41,5 +41,6 @@ namespace websitestintuc.Controllers
             var tinMoi = LayTinMoi(100);
             return View(tinMoi);
         }
+        
     }
 }

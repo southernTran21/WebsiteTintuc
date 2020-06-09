@@ -4,20 +4,20 @@
     Layout = "~/Views/Shared/_Layoutuser.cshtml";
 }
 
-@foreach (var result in Model)
-{
-    <div class="contentNew">
-        <div class="content">
-            <div class="topContent">
-                <a class="titleNew" href="@result.Link">@result.title</a>
-                <span class="descriptionNew">@result.description</span>
+    
+    @foreach (var result in Model)
+    {
+        <div class="contentNew">
+            <div class="content">
+                <div class="topContent">
+                    <a class="titleNew" href="@result.Link">@result.title</a>
+                    <span class="descriptionNew">@result.description</span>
+                </div>
+            </div>
+
+            <div class="image">
+                <img src="@Url.Content("~/ImageUpload/" +result.Imagedemo)"
+                     alt="" />
             </div>
         </div>
-        <div class="image">
-             <img
-                src="@Url.Content("~/ImageUpload/" +result.Imagedemo)"
-                alt=""
-            /> 
-        </div>
-    </div>
-}
+    }

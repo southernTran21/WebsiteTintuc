@@ -20,9 +20,11 @@ namespace websitestintuc.Controllers
         {
             return View();
         }
-        public ActionResult News()
+        public ActionResult News(int? page)
         {
-            return View(db.TinTucs.ToList());
+            int pageNumber = (page ?? 1);
+            int pageSize = 5;
+            return View(db.TinTucs.ToList().OrderBy(n => n.description).ToPagedList(pageNumber, pageSize));
         }
         public ActionResult Categories()
         {
@@ -70,6 +72,55 @@ namespace websitestintuc.Controllers
             }
             return View();
         }
+        
+        [HttpGet]
+        public ActionResult Themtaikhoan()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Themtaikhoan(Account account)
+        {
+            if (account == null)
+            {
+                ViewBag.ThongBao = "Vui Lòng Nhập Account";
+            }
+
+
+            db.Accounts.InsertOnSubmit(account);
+            db.SubmitChanges();
+            return RedirectToAction("Accounts");
+        }
+        public ActionResult DeleteAccounts(int id)
+        {
+            Account account = db.Accounts.SingleOrDefault(n => n.ID == id);
+
+            return View(account);
+        }
+        [HttpPost, ActionName("DeleteAccounts")]
+        public ActionResult confirmdelete3(int id)
+        {
+            Account account = db.Accounts.SingleOrDefault(n => n.ID == id);
+            ViewBag.ID = account.ID;
+            if (account == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            db.Accounts.DeleteOnSubmit(account);
+            db.SubmitChanges();
+            return RedirectToAction("Accounts");
+        }
+        public ActionResult DetailsAccounts(int id)
+        {
+            Account account = db.Accounts.SingleOrDefault(n => n.ID == id);
+            if (account == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(account);
+        }
         [HttpGet]
         public ActionResult Themlogo()
         {
@@ -104,6 +155,40 @@ namespace websitestintuc.Controllers
                 return RedirectToAction("LoGo");
             }
 
+        }
+        public ActionResult DeleteLoGo(int id)
+        {
+            Logo logo = db.Logos.SingleOrDefault(n => n.ID == id);
+
+            return View(logo);
+        }
+        [HttpPost, ActionName("DeleteLoGo")]
+        public ActionResult confirmdelete2(int id)
+        {
+            Logo logo = db.Logos.SingleOrDefault(n => n.ID == id);
+            ViewBag.ID = logo.ID;
+            if (logo == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            db.Logos.DeleteOnSubmit(logo);
+            db.SubmitChanges();
+            return RedirectToAction("LoGo");
+        }
+        public ActionResult DetailsLoGo(int id)
+        {
+            Logo logo = db.Logos.SingleOrDefault(n => n.ID == id);
+            if (logo == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(logo);
+        }
+        public ActionResult EditCategories(int id)
+        {
+            return View();
         }
         public ActionResult DeleteCategories(int id)
         {

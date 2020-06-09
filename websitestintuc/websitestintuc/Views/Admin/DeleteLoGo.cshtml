@@ -1,0 +1,41 @@
+﻿@model websitestintuc.Models.Logo
+
+@{
+    ViewBag.Title = "DeleteLoGo";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xoá LoGo</h2>
+
+<h3>Bạn có thật sự muốn xóa không ?</h3>
+<div>
+    <h4>Logo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/ImageUpload/" + Model.Image)" width="70px" height="70px" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SourceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SourceName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở Về", "LoGo")
+        </div>
+    }
+</div>
